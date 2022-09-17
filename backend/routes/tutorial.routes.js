@@ -25,4 +25,8 @@ module.exports = app=>{
    // deleting a tutorial with id
 
    router.delete("/:id",tutorials.delete);
+
+   // deleting all tutorials
+
+   router.delete("/",tutorials.deleteAll);
 }
