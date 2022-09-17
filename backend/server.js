@@ -27,6 +27,8 @@ app.get("/",(req,res)=>{
     res.json({message:"Welcome to angular+nodejs review"})
 });
 
+require("./routes/tutorial.routes")(app);
+
 
 // setting and listening to the port
 
