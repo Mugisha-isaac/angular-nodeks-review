@@ -16,11 +16,6 @@ exports.create = (req,res)=>{
         return;
     }
 
-}
-
-// retrieving all tutorials from database
-
-exports.findAll = (req,res)=>{
 
     const tutorial = {
         title: req.body.title,
@@ -40,9 +35,17 @@ exports.findAll = (req,res)=>{
 
 }
 
+// retrieving all tutorials from database
+
+exports.findAll = (req,res)=>{
+
+
+}
+
 // finding single tutorial with id
 
 exports.findOne = (req,res)=>{
+
 
 }
 
