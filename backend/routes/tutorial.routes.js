@@ -20,5 +20,9 @@ module.exports = app=>{
 
    // updating a tutorial by id
 
-   router.put("/:id",tutorials.update)
+   router.put("/:id",tutorials.update);
+
+   // deleting a tutorial with id
+
+   router.delete("/:id",tutorials.delete);
 }
