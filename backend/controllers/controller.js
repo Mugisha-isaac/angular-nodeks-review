@@ -76,6 +76,26 @@ exports.findOne = (req,res)=>{
 // updating single tutorial with id as request
 
 exports.update = (req,res)=>{
+    const id = req.params.id;
+
+    Tutorial.update(req.body,{
+        where:{id:id}
+    }).then(num=>{
+        if(num==1){
+            res.send({
+                message:"Tutorial was updated successfully"
+            })
+        }
+        else{
+            res.send({
+                message: `Can not update tutorial with id=${id}. May be tutorial was not found or req.body was empty!`
+            })
+        }
+    }).catch(err=>{
+        res.status(500).send({
+            message:`Error while updating tutorial with id=${id}`
+        })
+    })
 
 }
 
