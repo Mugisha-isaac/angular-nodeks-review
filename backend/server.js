@@ -3,6 +3,14 @@ const cors = require('cors');
 
 const app = express();
 
+const db = require('./model');
+
+// enabling feature to drop existing tables
+
+db.sequelize.sync({force:true}).then(()=>{
+    console.log('Dropping and re-syncing db');
+})
+
 const corsOptions = {
     origin:'http://locahost/8081'
 }
