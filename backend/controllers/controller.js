@@ -6,6 +6,16 @@ const Op = db.Sequelize.Op;
 
 exports.create = (req,res)=>{
 
+    // validating request
+
+    if(!req.body.title){
+        res.status(400).send({
+            message:"Content can not empty!"
+        });
+
+        return;
+    }
+
 }
 
 // retrieving all tutorials from database
@@ -41,5 +51,5 @@ exports.deleteAll = (req,res)=>{
 // finding all published tutorials
 
 exports.findAllPublished = (req,res)=>{
-    
+
 }
