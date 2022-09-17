@@ -55,8 +55,22 @@ exports.findAll = (req,res)=>{
 // finding single tutorial with id
 
 exports.findOne = (req,res)=>{
+  const id = req.params.id;
 
-
+  Tutorial.findByPk(id).then(data=>{
+    if(data){
+        res.send(data);
+    }
+    else{
+        res.status(404).send({
+            message: `Can not find tutorial with id=${id}`
+        })
+    }
+  }).catch(err=>{
+    res.status(500).send({
+        message:`Error occurred while retrieving tutorial with id=${id}`
+    })
+  })
 }
 
 // updating single tutorial with id as request
