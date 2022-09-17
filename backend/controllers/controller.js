@@ -22,6 +22,22 @@ exports.create = (req,res)=>{
 
 exports.findAll = (req,res)=>{
 
+    const tutorial = {
+        title: req.body.title,
+        description: req.body.description,
+        published: req.body.published ? req.body.published: false 
+    };
+
+    // saving tutorial in database
+    Tutorial.create(tutorial).then(data=>{
+       res.send(data);
+    }).catch(err=>{
+        res.status(500).send({
+         message: err.message || "Some error occurred while creating the tutorial";
+        })
+    })
+
+
 }
 
 // finding single tutorial with id
