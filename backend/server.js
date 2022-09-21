@@ -11,11 +11,13 @@ db.sequelize.sync({force:true}).then(()=>{
     console.log('Dropping and re-syncing db');
 })
 
-const corsOptions = {
-    origin:'http://locahost/8081'
-}
+// const corsOptions = {
+//     origin:'http://locahost/8081'
+// }
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
